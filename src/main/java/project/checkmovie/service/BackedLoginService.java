@@ -2,12 +2,11 @@ package project.checkmovie.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import project.checkmovie.domain.UserEntity;
 import project.checkmovie.domain.UserRepository;
@@ -19,6 +18,20 @@ public class BackedLoginService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    public UserEntity create(String id, String password, String userName, int age, String gender, String email) {
+        UserEntity user = new UserEntity();
+        user.setUserId(id);
+        user.setUserName(userName);
+        user.setAge(age);
+        user.setEmail(email);
+        user.setGender(gender);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user.setPassword(password);
+        this.userRepository.save(user);
+
+        return user;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String userName)
