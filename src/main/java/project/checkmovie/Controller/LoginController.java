@@ -1,6 +1,7 @@
 package project.checkmovie.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -40,16 +41,27 @@ public class LoginController {
     // 회원가입
     @GetMapping("/signUp")
     public String signUp(UserForm userForm) {
-        return "05-signup";
+        return "04-1-signup";
     }
 
     @PostMapping("/signUp")
     public String signUp(@Valid UserForm userForm, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
-            return "05-signup";
+            return "04-1-signup";
         }
-        backedLoginService.create(userForm.getId(), userForm.getPwd(), userForm.getName(), userForm.getAge()
-        , userForm.getGender(), userForm.getEmail());
+        try {
+            //backedLoginService.create(userForm.getId(), userForm.getPwd(), userForm.getName(), userForm.getAge()
+                  //  , userForm.getGender(), userForm.getEmail());
+            backedLoginService.create();
+        }catch (DataIntegrityViolationException e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
+            return "04-1-signup";
+        }catch(Exception e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", e.getMessage());
+            return "04-1-signup";
+        }
 
         return "redirect:/login";
     }
