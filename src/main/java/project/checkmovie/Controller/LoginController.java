@@ -25,13 +25,13 @@ public class LoginController {
 
     @GetMapping("/")
     public String getIndex(){
-        return "index";
+        return "01-main";
     }
 
-    @GetMapping("/main")
-    public String getMain() {
-        return "main";
-    }
+//    @GetMapping("/main")
+//    public String getMain() {
+//        return "01-main";
+//    }
 
     @GetMapping("/login")
     public String getLoginForm() {
@@ -41,6 +41,8 @@ public class LoginController {
     // 회원가입
     @GetMapping("/signUp")
     public String signUp(UserForm userForm) {
+        //임시로 디비에 정보 넣기
+//        backedLoginService.create();
         return "04-1-signup";
     }
 
@@ -50,9 +52,9 @@ public class LoginController {
             return "04-1-signup";
         }
         try {
-            //backedLoginService.create(userForm.getId(), userForm.getPwd(), userForm.getName(), userForm.getAge()
-                  //  , userForm.getGender(), userForm.getEmail());
-            backedLoginService.create();
+            backedLoginService.create(userForm.getId(), userForm.getPwd(), userForm.getName(), userForm.getAge()
+                    , userForm.getGender(), userForm.getEmail());
+//            backedLoginService.create();
         }catch (DataIntegrityViolationException e) {
             e.printStackTrace();
             bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");

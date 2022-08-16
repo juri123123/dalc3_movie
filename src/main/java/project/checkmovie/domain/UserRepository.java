@@ -12,10 +12,14 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     //id로 회원검색
     Optional<UserEntity> findByUserId(String userId);
+//    UserEntity findByUSerId(String userId){
+//        return
+//    }
 
     //name 으로 회원 검색
     Optional<UserEntity> findByUserName(String userName);
 
     //회원 모두 출력
     List<UserEntity> findAll();
+
 }

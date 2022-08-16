@@ -33,19 +33,19 @@ public class BackedLoginService implements UserDetailsService {
         return user;
     }
 
-    public UserEntity create() {
-        UserEntity user2 = new UserEntity();
-        user2.setUserId("id1");
-        user2.setUserName("name1");
-        user2.setAge(23);
-        user2.setEmail("user@naver.com");
-        user2.setGender("F");
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        user2.setPassword("password1");
-        this.userRepository.save(user2);
-
-        return user2;
-    }
+//    public UserEntity create() {
+//        UserEntity user2 = new UserEntity();
+//        user2.setUserId("id1");
+//        user2.setUserName("name1");
+//        user2.setAge(23);
+//        user2.setEmail("user@naver.com");
+//        user2.setGender("F");
+////        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//        user2.setPassword("{noop}password1");
+//        this.userRepository.save(user2);
+//
+//        return user2;
+//    }
 
     @Override
     public UserDetails loadUserByUsername(String userName)
