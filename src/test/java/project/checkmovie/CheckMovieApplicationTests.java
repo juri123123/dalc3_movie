@@ -22,17 +22,17 @@ class CheckMovieApplicationTests {
 	void signUp() {
 		//user 저장
 		UserEntity user3 = new UserEntity();
-		user3.setUserId("id2");
-		user3.setUserName("name2");
+		user3.setId("id2");
+		user3.setName("name2");
 		user3.setAge(24);
 		user3.setEmail("user2@naver.com");
 		user3.setGender("G");
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		user3.setPassword("password2");
+		user3.setPwd("password2");
 		this.userRepository.save(user3);
 
-		UserEntity findMember = userRepository.findByUserId(user3.getUserId()).get();
-		Assertions.assertEquals(user3.getUserName(), findMember.getUserName());
+		UserEntity findMember = userRepository.findById(user3.getId()).get();
+		Assertions.assertEquals(user3.getId(), findMember.getId());
 	}
 
 }

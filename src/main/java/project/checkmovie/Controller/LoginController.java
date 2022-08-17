@@ -6,6 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import project.checkmovie.domain.UserEntity;
 import project.checkmovie.domain.UserRepository;
@@ -47,7 +48,7 @@ public class LoginController {
     }
 
     @PostMapping("/signUp")
-    public String signUp(@Valid UserForm userForm, BindingResult bindingResult) {
+    public String signUp(@ModelAttribute UserForm userForm, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             return "04-1-signup";
         }

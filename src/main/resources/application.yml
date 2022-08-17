@@ -1,22 +1,32 @@
+
+#spring:
+#  # H2 DB
+#  h2:
+#    console:
+#      enabled: true
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:tcp://localhost/~/test
+#    username: sa
+#    password:
+#
+#  jpa:
+#    hibernate:
+#    ddl-auto: none
+#    generate-ddl: true
+#
+#  main:
+#    allow-circular-references: true
+#
+#handlebars:
+#  suffix: .html
+#  expose-session-attributes: true
+
+
+#mysql
 spring:
-  # H2 DB
-  h2:
-    console:
-      enabled: true
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/test
-    username: sa
-    password:
-
-  jpa:
-    hibernate:
-    ddl-auto: none
-    generate-ddl: true
-
-  main:
-    allow-circular-references: true
-
-handlebars:
-  suffix: .html
-  expose-session-attributes: true
+    datasource:
+      url: jdbc:mysql://springboot-db.ckzxwo2jkm2c.ap-northeast-2.rds.amazonaws.com:3306/checkmovie
+      username: admin
+      password: dalc2022
+      driver-class-name: com.mysql.cj.jdbc.Driver

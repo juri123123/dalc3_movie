@@ -11,13 +11,13 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     UserEntity save(UserEntity userEntity);
 
     //id로 회원검색
-    Optional<UserEntity> findByUserId(String userId);
+    Optional<UserEntity> findById(String id);
 //    UserEntity findByUSerId(String userId){
 //        return
 //    }
 
     //name 으로 회원 검색
-    Optional<UserEntity> findByUserName(String userName);
+    Optional<UserEntity> findByName(String name);
 
     //회원 모두 출력
     List<UserEntity> findAll();

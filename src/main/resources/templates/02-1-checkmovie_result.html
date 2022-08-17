@@ -2,18 +2,19 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1440, maximum-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
-  <meta name="og:type" content="website" />
-  <meta name="twitter:card" content="photo" />
-  <link rel="stylesheet" type="text/css" href="css/02-checkmovie-result.css" />
-  <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
-  <link rel="stylesheet" type="text/css" href="css/globals.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1440, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/02-checkmovie-result.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+    <link rel="stylesheet" type="text/css" href="css/form.css" />
 </head>
 
 <body style="margin: 0; background: #ffffff">
-    <form action="#" accept-charset="utf-8" name="checkmovie_result" method="get">
+    <form class="checkmovie_form" action="#" accept-charset="utf-8" name="checkmovie_result" method="get">
         <input type="hidden" id="anPageName" name="page" value="03-recommand" />
         <div class="container-center-horizontal">
             <div class="x03-recommand screen">
@@ -94,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="check-movie abrilfatface-normal-tulip-tree-30px"><a href='02-checkmovie.html' class="a_flexbox">check movie</a></div>
+                        <div class="check-movie abrilfatface-normal-tulip-tree-30px"><a href='02-checkmovie.html' class="a_flexbox" style="color:#FFABAB;">check movie</a></div>
                         <div class="recommand abrilfatface-normal-tulip-tree-30px"><a href='03-recommend.html' class="a_flexbox">recommend</a></div>
                         <div class="my-book abrilfatface-normal-tulip-tree-30px"><a href='05-1-mybook-recommended-books.html' class="a_flexbox">my book</a></div>
                         <div class="shop abrilfatface-normal-tulip-tree-30px"><a href='07-shop.html' class="a_flexbox">shop</a></div>
@@ -128,7 +129,7 @@
                             </div>
                         </div>
                         <div class="left-bar-view-3">
-                            <div class="left-bar-text-58 fontawesome5free-solid-normal-white-32px"></div>
+                            <div class="text-342 fontawesome6free-solid-normal-white-32px"></div>
                             <div class="left-bar-my-picks ptserif-normal-white-24px">
                                 <a class="a_sidebar"
                                    href="05-3-mybook-mypicks.html">my book</a>
@@ -164,9 +165,6 @@
 
                             <div class="overlap-group1-1" style="cursor:pointer;">
                                 <div class="text-3 fontawesome5free-solid-normal-white-40px"></div>
-                            </div>
-                            <div class="overlap-group2-1 border-1px-black-3">
-                                <div class="text fontawesome5free-solid-normal-white-40px"></div>
                             </div>
                             <div id='change_color' class="overlap-group3-1 border-1px-black-3" style="cursor:pointer;" onclick="change_color()">
                                 <div class="text fontawesome5free-solid-normal-white-40px"></div>
@@ -236,7 +234,8 @@
                     </div>
                 </div>
             </div>
-            </form>
+            </div>
+        </form>
 </body>
 
 </html>

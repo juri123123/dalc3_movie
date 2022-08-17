@@ -21,13 +21,13 @@ public class BackedLoginService implements UserDetailsService {
 
     public UserEntity create(String id, String password, String userName, int age, String gender, String email) {
         UserEntity user = new UserEntity();
-        user.setUserId(id);
-        user.setUserName(userName);
+        user.setId(id);
+        user.setName(userName);
         user.setAge(age);
         user.setEmail(email);
         user.setGender(gender);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        user.setPassword(password);
+        user.setPwd(passwordEncoder.encode(password));
         this.userRepository.save(user);
 
         return user;
@@ -50,11 +50,11 @@ public class BackedLoginService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName)
             throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByUserName(userName).orElseThrow(() ->
+        UserEntity user = userRepository.findByName(userName).orElseThrow(() ->
                 new IllegalArgumentException("존재하지 않는 유저입니다."));
         //login issue 해결해야함.
-        return new User(user.getUserId(), user.getPassword(),
-                Arrays.asList(new SimpleGrantedAuthority(user.getUserId())));
+        return new User(user.getId(), user.getPwd(),
+                Arrays.asList(new SimpleGrantedAuthority(user.getId())));
     }
 
     //현재 인증된 사용자의 정보 가져오기

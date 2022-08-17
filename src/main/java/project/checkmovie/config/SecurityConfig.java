@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/h2-console/**", "/css/**", "/fonts/**", "/img/**", "/js/**", "/swiper/**");
+        web.ignoring().antMatchers( /*"/h2-console/**" , */ "/css/**", "/fonts/**", "/img/**", "/js/**", "/swiper/**");
     }
 
     @Override
@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/login", "/h2-console/*", "/signUp", "/")
+                .antMatchers(/*"/h2-console/*",*/ "/login", "/signUp", "/")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -39,8 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/doLogin")
-                .usernameParameter("userId")
-                .passwordParameter("password")
+                .usernameParameter("id")
+                .passwordParameter("pwd")
                 .successHandler(new MyLoginSuccessHandler())
                 .and()
                 .logout()

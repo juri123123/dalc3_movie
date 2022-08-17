@@ -11,10 +11,10 @@ public class DBConfig {
     @Bean
     public DataSource dataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.driverClassName("org.h2.Driver");
-        dataSourceBuilder.username("sa");
-        dataSourceBuilder.password("");
-        dataSourceBuilder.url("jdbc:h2:tcp://localhost/~/test");
+        dataSourceBuilder.driverClassName("com.mysql.cj.jdbc.Driver");
+        dataSourceBuilder.username("admin");
+        dataSourceBuilder.password("dalc2022");
+        dataSourceBuilder.url("jdbc:mysql://springboot-db.ckzxwo2jkm2c.ap-northeast-2.rds.amazonaws.com:3306/checkmovie");
         return dataSourceBuilder.build();
     }
 }

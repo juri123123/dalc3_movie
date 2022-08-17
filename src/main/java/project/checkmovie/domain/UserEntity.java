@@ -14,12 +14,12 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long num;
 
-    private String userId;
-
-    private String password;
-
     @Column(unique = true)
-    private String userName;
+    private String id;
+
+    private String pwd;
+
+    private String name;
 
     private int age;
 
