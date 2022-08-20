@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers( /*"/h2-console/**" , */ "/css/**", "/fonts/**", "/img/**", "/js/**", "/swiper/**");
+        web.ignoring().antMatchers( "/css/**", "/fonts/**", "/img/**", "/js/**", "/swiper/**");
     }
 
     @Override
